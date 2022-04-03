@@ -78,10 +78,9 @@ public class MyClient {
                 dis.read(byteArray);
                 msg = new String(byteArray, StandardCharsets.UTF_8);
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            System.out.println(e);
         }
-        // Return the msg just recieved from the server
         return msg;
     }
 
