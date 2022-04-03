@@ -67,7 +67,7 @@ public class MyClient {
         String msg = "";
         try {
             DataInputStream dis = new DataInputStream(s.getInputStream());
-            // Create byte array and reset it to 0 for storing
+            // Create an array of bytes and reset it to 0 for storing
             // incoming messages from the server
             byte[] byteArray = new byte[dis.available()];
             // available() method blocks until input data is available
@@ -88,22 +88,22 @@ public class MyClient {
         // Servers in the msg spilt into an array
         String[] serverRecs = msg.split("\n");
         int mostCores = 0;
-        String[] currentServer = { " " };
+        String[] currServer = { " " };
         // Search for the most core a server holds in the given server
         for (int i = 0; i < serverRecs.length; i++) {
-            currentServer = serverRecs[i].split(" ");
-            int currentCores = Integer.valueOf(currentServer[4]);
-            if (currentCores > mostCores) {
-                mostCores = currentCores;
+            currServer = serverRecs[i].split(" ");
+            int currCores = Integer.valueOf(currServer[4]);
+            if (currCores > mostCores) {
+                mostCores = currCores;
             }
         }
 
         // search the biggest server (most cores)
         for (int i = 0; i < serverRecs.length; i++) {
-            currentServer = serverRecs[i].split(" ");
-            int currentCores = Integer.valueOf(currentServer[4]);
-            if (currentCores == mostCores) {
-                return currentServer;
+            currServer = serverRecs[i].split(" ");
+            int currCores = Integer.valueOf(currServer[4]);
+            if (currCores == mostCores) {
+                return currServer;
             }
         }
         return currentServer;
